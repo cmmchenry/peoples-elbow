@@ -59,7 +59,41 @@ public class App extends Application {
     private void loadQueryScene() {
     	GridPane grid = new GridPane();
     	grid.setAlignment(Pos.CENTER);
-    	
+    	Button button1 = new Button("Query1");
+    	button1.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+            	loadQueryScene();
+            }
+        });
+    	Button button2 = new Button("Query2");
+    	button2.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+            	loadQueryScene();
+            }
+        });
+    	Button button3 = new Button("Query3");
+    	button3.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+            	loadQueryScene();
+            }
+        });
+    	Button button4 = new Button("Query4");
+    	button4.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+            	loadQueryScene();
+            }
+        });
+    	Button button5 = new Button("Query5");
+    	button5.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+            	loadQueryScene();
+            }
+        });
     	Scene scene = new Scene(grid, WIDTH, HEIGHT);
     	this.stage.setScene(scene);
         this.stage.show();
