@@ -1,28 +1,32 @@
 package beans;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 public class Purchase {	
-	private String itemId;
-	private int quantity;
-	private String receiptId;
+	private SimpleStringProperty itemId;
+	private IntegerProperty quantity;
+	private SimpleStringProperty receiptId;
 	public Purchase (){
 		
 	}
-	public String getItemId() {
+	public SimpleStringProperty getItemId() {
 		return itemId;
 	}
-	public void setItemId(String itemId) {
+	public void setItemId(SimpleStringProperty itemId) {
 		this.itemId = itemId;
 	}
-	public int getQuantity() {
+	public IntegerProperty getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(int quantity) {
+	public void setQuantity(IntegerProperty quantity) {
 		this.quantity = quantity;
 	}
-	public String getReceiptId() {
+	public SimpleStringProperty getReceiptId() {
 		return receiptId;
 	}
-	public void setReceiptId(String receiptId) {
+	public void setReceiptId(SimpleStringProperty receiptId) {
 		this.receiptId = receiptId;
 	}
+	
 }

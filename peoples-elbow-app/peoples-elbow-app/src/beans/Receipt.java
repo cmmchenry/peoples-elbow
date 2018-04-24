@@ -1,56 +1,60 @@
 package beans;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 public class Receipt {
-	private String receiptId;
-	private String customerId;
-	private int hour;
-	private int minute;
-	private int registerNo;
-	private String employeeId;
+	private SimpleStringProperty receiptId;
+	private SimpleStringProperty customerId;
+	private IntegerProperty hour;
+	private IntegerProperty minute;
+	private IntegerProperty registerNo;
+	private SimpleStringProperty employeeId;
+	private SimpleStringProperty date;
 	public Receipt () {
 		
 	}
-	public String getReceiptId() {
+	public SimpleStringProperty getReceiptId() {
 		return receiptId;
 	}
-	public void setReceiptId(String receiptId) {
+	public void setReceiptId(SimpleStringProperty receiptId) {
 		this.receiptId = receiptId;
 	}
-	public String getCustomerId() {
+	public SimpleStringProperty getCustomerId() {
 		return customerId;
 	}
-	public void setCustomerId(String customerId) {
+	public void setCustomerId(SimpleStringProperty customerId) {
 		this.customerId = customerId;
 	}
-	public int getHour() {
+	public IntegerProperty getHour() {
 		return hour;
 	}
-	public void setHour(int hour) {
+	public void setHour(IntegerProperty hour) {
 		this.hour = hour;
 	}
-	public int getMinute() {
+	public IntegerProperty getMinute() {
 		return minute;
 	}
-	public void setMinute(int minute) {
+	public void setMinute(IntegerProperty minute) {
 		this.minute = minute;
 	}
-	public int getRegisterNo() {
+	public IntegerProperty getRegisterNo() {
 		return registerNo;
 	}
-	public void setRegisterNo(int registerNo) {
+	public void setRegisterNo(IntegerProperty registerNo) {
 		this.registerNo = registerNo;
 	}
-	public String getEmployeeId() {
+	public SimpleStringProperty getEmployeeId() {
 		return employeeId;
 	}
-	public void setEmployeeId(String employeeId) {
+	public void setEmployeeId(SimpleStringProperty employeeId) {
 		this.employeeId = employeeId;
 	}
-	public String getDate() {
+	public SimpleStringProperty getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(SimpleStringProperty date) {
 		this.date = date;
 	}
-	private String date;
+	
 }

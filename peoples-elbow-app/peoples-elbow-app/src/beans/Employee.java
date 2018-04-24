@@ -1,60 +1,66 @@
 package beans;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.DoubleProperty;
+
 public class Employee {
-	private String employeeId;
-	private String ssn;
-	private String address;
-	private String firstName;
-	private char middleInit;
-	public String getEmployeeId() {
+	private SimpleStringProperty employeeId;
+	private SimpleStringProperty ssn;
+	private SimpleStringProperty address;
+	private SimpleStringProperty firstName;
+	private SimpleStringProperty middleInit;
+	private SimpleStringProperty lastName;
+	private DoubleProperty hourlyRate;
+	private DoubleProperty salary;
+	public Employee() {
+		
+	}
+	public SimpleStringProperty getEmployeeId() {
 		return employeeId;
 	}
-	public void setEmployeeId(String employeeId) {
+	public void setEmployeeId(SimpleStringProperty employeeId) {
 		this.employeeId = employeeId;
 	}
-	public String getSsn() {
+	public SimpleStringProperty getSsn() {
 		return ssn;
 	}
-	public void setSsn(String ssn) {
+	public void setSsn(SimpleStringProperty ssn) {
 		this.ssn = ssn;
 	}
-	public String getAddress() {
+	public SimpleStringProperty getAddress() {
 		return address;
 	}
-	public void setAddress(String address) {
+	public void setAddress(SimpleStringProperty address) {
 		this.address = address;
 	}
-	public String getFirstName() {
+	public SimpleStringProperty getFirstName() {
 		return firstName;
 	}
-	public void setFirstName(String firstName) {
+	public void setFirstName(SimpleStringProperty firstName) {
 		this.firstName = firstName;
 	}
-	public char getMiddleInit() {
+	public SimpleStringProperty getMiddleInit() {
 		return middleInit;
 	}
-	public void setMiddleInit(char middleInit) {
+	public void setMiddleInit(SimpleStringProperty middleInit) {
 		this.middleInit = middleInit;
 	}
-	public String getLastName() {
+	public SimpleStringProperty getLastName() {
 		return lastName;
 	}
-	public void setLastName(String lastName) {
+	public void setLastName(SimpleStringProperty lastName) {
 		this.lastName = lastName;
 	}
-	public double getHourlyRate() {
+	public DoubleProperty getHourlyRate() {
 		return hourlyRate;
 	}
-	public void setHourlyRate(double hourlyRate) {
+	public void setHourlyRate(DoubleProperty hourlyRate) {
 		this.hourlyRate = hourlyRate;
 	}
-	public double getSalary() {
+	public DoubleProperty getSalary() {
 		return salary;
 	}
-	public void setSalary(double salary) {
+	public void setSalary(DoubleProperty salary) {
 		this.salary = salary;
 	}
-	String lastName;
-	double hourlyRate;
-	double salary;
 }

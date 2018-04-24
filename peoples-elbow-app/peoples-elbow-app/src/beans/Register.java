@@ -1,35 +1,38 @@
 package beans;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 public class Register {
-	private String registerId;
-	private String operatorEId;
-	private String lastServiceDate;
-	private double balance;
+	private SimpleStringProperty registerId;
+	private SimpleStringProperty operatorEId;
+	private SimpleStringProperty lastServiceDate;
+	private DoubleProperty balance;
 	public Register() {
 		
 	}
-	public String getRegisterId() {
+	public SimpleStringProperty getRegisterId() {
 		return registerId;
 	}
-	public void setRegisterId(String registerId) {
+	public void setRegisterId(SimpleStringProperty registerId) {
 		this.registerId = registerId;
 	}
-	public String getOperatorEId() {
+	public SimpleStringProperty getOperatorEId() {
 		return operatorEId;
 	}
-	public void setOperatorEId(String operatorEId) {
+	public void setOperatorEId(SimpleStringProperty operatorEId) {
 		this.operatorEId = operatorEId;
 	}
-	public String getLastServiceDate() {
+	public SimpleStringProperty getLastServiceDate() {
 		return lastServiceDate;
 	}
-	public void setLastServiceDate(String lastServiceDate) {
+	public void setLastServiceDate(SimpleStringProperty lastServiceDate) {
 		this.lastServiceDate = lastServiceDate;
 	}
-	public double getBalance() {
+	public DoubleProperty getBalance() {
 		return balance;
 	}
-	public void setBalance(double balance) {
+	public void setBalance(DoubleProperty balance) {
 		this.balance = balance;
 	}
 	

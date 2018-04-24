@@ -1,42 +1,44 @@
 package beans;
 
+import javafx.beans.property.SimpleStringProperty;
+
 public class Customer {
-	private String customerId;
-	private String firstName;
-	private char middleInit;
-	private String lastName;
-	private String address;
+	private SimpleStringProperty customerId;
+	private SimpleStringProperty firstName;
+	private SimpleStringProperty middleInit;
+	private SimpleStringProperty lastName;
+	private SimpleStringProperty address;
 	public Customer(){
 		
 	}
-	public String getCustomerId() {
+	public SimpleStringProperty getCustomerId() {
 		return customerId;
 	}
-	public void setCustomerId(String customerId) {
+	public void setCustomerId(SimpleStringProperty customerId) {
 		this.customerId = customerId;
 	}
-	public String getFirstName() {
+	public SimpleStringProperty getFirstName() {
 		return firstName;
 	}
-	public void setFirstName(String firstName) {
+	public void setFirstName(SimpleStringProperty firstName) {
 		this.firstName = firstName;
 	}
-	public char getMiddleInit() {
+	public SimpleStringProperty getMiddleInit() {
 		return middleInit;
 	}
-	public void setMiddleInit(char middleInit) {
+	public void setMiddleInit(SimpleStringProperty middleInit) {
 		this.middleInit = middleInit;
 	}
-	public String getLastName() {
+	public SimpleStringProperty getLastName() {
 		return lastName;
 	}
-	public void setLastName(String lastName) {
+	public void setLastName(SimpleStringProperty lastName) {
 		this.lastName = lastName;
 	}
-	public String getAddress() {
+	public SimpleStringProperty getAddress() {
 		return address;
 	}
-	public void setAddress(String address) {
+	public void setAddress(SimpleStringProperty address) {
 		this.address = address;
 	}
 }

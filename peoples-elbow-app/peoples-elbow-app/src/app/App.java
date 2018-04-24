@@ -17,8 +17,8 @@ import javafx.stage.Stage;
 public class App extends Application {
 	
 	Stage stage;
-	final double WIDTH = 1600;
-	final double HEIGHT = 900;
+	final double WIDTH = 800;
+	final double HEIGHT = 450;
 	
 	
     public static void main(String[] args) {

@@ -1,45 +1,48 @@
 package beans;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.IntegerProperty;
+
 public class Product {
-	private String itemId;
-	private String itemName;
-	private int stock;
-	private double price;
+	private SimpleStringProperty itemId;
+	private SimpleStringProperty itemName;
+	private IntegerProperty stock;
+	private DoubleProperty price;
  	
  	public Product() {
  		
  	}
-
-	public String getItemId() {
+ 	
+	public SimpleStringProperty getItemId() {
 		return itemId;
 	}
 
-	public void setItemId(String itemId) {
+	public void setItemId(SimpleStringProperty itemId) {
 		this.itemId = itemId;
 	}
 
-	public String getItemName() {
+	public SimpleStringProperty getItemName() {
 		return itemName;
 	}
 
-	public void setItemName(String itemName) {
+	public void setItemName(SimpleStringProperty itemName) {
 		this.itemName = itemName;
 	}
 
-	public int getStock() {
+	public IntegerProperty getStock() {
 		return stock;
 	}
 
-	public void setStock(int stock) {
+	public void setStock(IntegerProperty stock) {
 		this.stock = stock;
 	}
 
-	public double getPrice() {
+	public DoubleProperty getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(DoubleProperty price) {
 		this.price = price;
 	}
- 	
 }
