@@ -1,6 +1,6 @@
-package app;
+package helpers;
 
-import static app.configuration.JDBC_URL;
+import static helpers.configuration.JDBC_URL;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.sql.Types;
 import java.util.Scanner;
 
+import app.Queries;
 
 public class QueryTester {
 	//issues with rounding

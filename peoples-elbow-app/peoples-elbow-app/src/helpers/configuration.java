@@ -1,4 +1,4 @@
-package app;
+package helpers;
 
 public class configuration {
 	public static final String

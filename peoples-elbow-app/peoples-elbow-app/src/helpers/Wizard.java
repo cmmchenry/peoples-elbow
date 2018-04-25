@@ -1,5 +1,5 @@
 
-package app;
+package helpers;
 	import javax.swing.JOptionPane;
 	import javax.swing.JLabel;
 	import javax.swing.JPasswordField;
