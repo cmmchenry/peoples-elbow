@@ -2,6 +2,7 @@ package app;
 
 public class Queries {
 	
+	/**/
 	public static final String QUERY_1 = 
 			"SELECT R.RECEIPT_ID AS \"Receipt ID\", "
 			+ " R.RECEIPT_DATE AS \"Date of Receipt          \", "
