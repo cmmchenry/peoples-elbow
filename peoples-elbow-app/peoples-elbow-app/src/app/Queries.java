@@ -1,8 +1,9 @@
 package app;
 
+/*Defining all queries. Called by the application class.*/
 public class Queries {
 	
-	/**/
+	/*Get all receipts for a given customer.*/
 	public static final String QUERY_1 = 
 			"SELECT R.RECEIPT_ID AS \"Receipt ID\", "
 			+ " R.RECEIPT_DATE AS \"Date of Receipt          \", "
@@ -14,6 +15,7 @@ public class Queries {
 			+ " JOIN PRODUCT PR ON PU.ITEM_ID = PR.ITEM_ID"
 			+ " WHERE C.CUSTOMER_ID = 401 ";
 	
+	/*Get all products sold in the past month.*/
 	public static final String QUERY_2 =
 			"SELECT PR.ITEM_NAME AS \"Item Name\", "
 			+ " SUM(PU.QUANTITY) AS \"Total quantity\" "
@@ -24,6 +26,8 @@ public class Queries {
 			+ " GROUP BY PR.ITEM_NAME"
 			+ " ORDER BY PR.ITEM_NAME ASC";
 	
+	/*Get employees receipt count, average cost of receipt, 
+	 *average item count, for the past year.*/
 	public static final String QUERY_3 = 
 			"SELECT E.FIRST_NAME AS \"First Name\", "
 			+ " E.LAST_NAME AS \"Last Name\", "
@@ -37,6 +41,7 @@ public class Queries {
 			+ " GROUP BY E.FIRST_NAME, E.LAST_NAME"
 			+ " ORDER BY E.LAST_NAME ASC, E.FIRST_NAME ASC";
 	
+	/*Show manager for each employee.*/
 	public static final String QUERY_4 = 
 			"SELECT E.FIRST_NAME AS \"First Name\", "
 			+ " E.LAST_NAME AS \"Last Name\", "
@@ -46,7 +51,8 @@ public class Queries {
 			+ " FROM EMPLOYEE E"
 			+ " JOIN MANAGES M ON E.EMPLOYEE_ID = M.EMPLOYEE_ID"
 			+ " JOIN EMPLOYEE B ON M.MANAGER_E_ID = B.EMPLOYEE_ID";
-			
+	
+	/*Register status.*/
 	public static final String QUERY_5 = 
 			"SELECT E.FIRST_NAME AS \"First Name\", "
 			+ " E.LAST_NAME AS \"Last Name\", "
