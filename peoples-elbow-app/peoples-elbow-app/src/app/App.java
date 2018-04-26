@@ -1,38 +1,26 @@
 package app;
  
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
-import beans.Query1;
-import beans.Query2;
-import beans.Query3;
-import beans.Query4;
-import beans.Query5;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.TableColumn;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
  
 public class App extends Application {
 	
-	final double WIDTH = 1280;
+	final double WIDTH = 720;
 	final double HEIGHT = 720;
 	private Scene loginScene, queryScene;
 	private TableView table = new TableView();
@@ -59,6 +47,7 @@ public class App extends Application {
 				primaryStage.setScene(queryScene);
 				password.clear();
 			} catch (SQLException e1) {
+				password.clear();
 				System.out.println(e1.getMessage());
 			}
         });
@@ -71,62 +60,81 @@ public class App extends Application {
         loginScene = new Scene(layout1, WIDTH, HEIGHT);
         
         //QueryScene
-        Button button1 = new Button("Query1");
-    	button1.setOnAction(e -> {
-    		try {
-    			ResultSet rs = connectionManager.excecuteQuery(Queries.QUERY_1);
-    			TableManager.buildTable1(rs, table);
+        ToggleGroup group = new ToggleGroup();
+        RadioButton query1 = new RadioButton("Receipts for Customer");
+        query1.setToggleGroup(group);
+        query1.setSelected(true);
+        query1.setOnAction(e -> {
+        	textField.setDisable(false);
+        });
+        RadioButton query2 = new RadioButton("Products sold for the past month");
+        query2.setToggleGroup(group);
+        query2.setOnAction(e -> {
+        	textField.setDisable(false);
+        });
+        RadioButton query3 = new RadioButton("Employee Productivity");
+        query3.setToggleGroup(group);
+        query3.setOnAction(e -> {
+        	textField.setDisable(false);
+        });
+        RadioButton query4 = new RadioButton("Employees' Managers");
+        query4.setToggleGroup(group);
+        query4.setOnAction(e -> {
+        	textField.setDisable(true);
+        });
+        RadioButton query5 = new RadioButton("Register Balances");
+        query5.setToggleGroup(group);
+        query5.setOnAction(e -> {
+        	textField.setDisable(true);
+        });
+        
+        VBox radioGroup = new VBox(10);
+        radioGroup.getChildren().addAll(query1, query2, query3, query4, query5);
+        Button queryButton = new Button("Query");
+        queryButton.setOnAction(e -> {
+        	try {
+	        	String query = "";
+	        	if(query1.isSelected() == true) {
+	        		query = Queries.QUERY_1;
+	        		ResultSet rs = connectionManager.excecuteQuery(query);
+					TableManager.buildTable1(rs, table);
+	        	}
+	        	else if(query2.isSelected() == true) {
+	        		query = Queries.QUERY_2;
+	        		ResultSet rs = connectionManager.excecuteQuery(query);
+					TableManager.buildTable2(rs, table);
+	        	}
+				else if(query3.isSelected() == true) {
+					query = Queries.QUERY_3;	
+					ResultSet rs = connectionManager.excecuteQuery(query);
+					TableManager.buildTable3(rs, table);
+				}
+				else if(query4.isSelected() == true) {
+					query = Queries.QUERY_4;
+					ResultSet rs = connectionManager.excecuteQuery(query);
+					TableManager.buildTable4(rs, table);
+				}
+				else if(query5.isSelected() == true) {
+					query = Queries.QUERY_5;
+					ResultSet rs = connectionManager.excecuteQuery(query);
+					TableManager.buildTable5(rs, table);
+				}
 			} catch (SQLException e1) {
-				System.out.println(e1.getMessage());
+				e1.printStackTrace();
 			}
-    	});
-    	Button button2 = new Button("Query2");
-    	button2.setOnAction(e -> {
-    		try {
-    			ResultSet rs = connectionManager.excecuteQuery(Queries.QUERY_2);
-    			TableManager.buildTable2(rs, table);
-			} catch (SQLException e1) {
-				System.out.println(e1.getMessage());
-			}
-    	});
-    	Button button3 = new Button("Query3");
-    	button3.setOnAction(e -> {
-    		try {
-    			ResultSet rs = connectionManager.excecuteQuery(Queries.QUERY_3);
-    			TableManager.buildTable3(rs, table);
-			} catch (SQLException e1) {
-				System.out.println(e1.getMessage());
-			}
-    	});
-    	Button button4 = new Button("Query4");
-    	button4.setOnAction(e -> {
-    		try {
-    			ResultSet rs = connectionManager.excecuteQuery(Queries.QUERY_4);
-    			TableManager.buildTable4(rs, table);
-			} catch (SQLException e1) {
-				System.out.println(e1.getMessage());
-			}
-    	});
-    	Button button5 = new Button("Query5");
-    	button5.setOnAction(e -> {
-    		try {
-    			ResultSet rs = connectionManager.excecuteQuery(Queries.QUERY_5);
-    			TableManager.buildTable5(rs, table);
-			} catch (SQLException e1) {
-				System.out.println(e1.getMessage());
-			}
-    	});
+        	
+        });
+
     	Button logoutButton = new Button("<- Logout");
     	logoutButton.setOnAction(e -> {
     		connectionManager = null;
     		table.getColumns().clear();
 			primaryStage.setScene(loginScene);
     	});
-    	HBox buttons = new HBox(10);
-    	buttons.setAlignment(Pos.CENTER);
-    	buttons.getChildren().addAll(textField, button1, button2, button3, button4, button5);
+    	HBox controls = new HBox(10);
+    	controls.getChildren().addAll(textField, queryButton);
     	VBox layout2 = new VBox(10);
-    	layout2.getChildren().addAll(logoutButton, table, buttons);
+    	layout2.getChildren().addAll(logoutButton, table, controls, radioGroup);
     	queryScene = new Scene(layout2, WIDTH, HEIGHT);
    
         primaryStage.setScene(loginScene);
