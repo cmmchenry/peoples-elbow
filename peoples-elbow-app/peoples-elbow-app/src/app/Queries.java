@@ -3,7 +3,8 @@ package app;
 /*Defining all queries. Called by the application class.*/
 public class Queries {
 	
-	/*Get all receipts for a given customer.*/
+	/*Get all receipts for a given customer. 
+	 * Requires parameter replacement.*/
 	public static final String QUERY_1 = 
 			"SELECT R.RECEIPT_ID AS \"Receipt ID\", "
 			+ " R.RECEIPT_DATE AS \"Date of Receipt          \", "
@@ -13,7 +14,7 @@ public class Queries {
 			+ " JOIN RECEIPT R ON C.CUSTOMER_ID = R.CUSTOMER_ID"
 			+ " JOIN PURCHASE PU ON R.RECEIPT_ID = PU.RECEIPT_ID"
 			+ " JOIN PRODUCT PR ON PU.ITEM_ID = PR.ITEM_ID"
-			+ " WHERE C.CUSTOMER_ID = 401 ";
+			+ " WHERE C.CUSTOMER_ID = ?"; //Replace ? with input parameter
 	
 	/*Get all products sold in the past month.*/
 	public static final String QUERY_2 =
@@ -26,7 +27,7 @@ public class Queries {
 			+ " GROUP BY PR.ITEM_NAME"
 			+ " ORDER BY PR.ITEM_NAME ASC";
 	
-	/*Get employees receipt count, average cost of receipt, 
+	/*Get employees' receipt count, average cost of receipt, 
 	 *average item count, for the past year.*/
 	public static final String QUERY_3 = 
 			"SELECT E.FIRST_NAME AS \"First Name\", "
