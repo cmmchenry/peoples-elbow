@@ -24,7 +24,7 @@ public class App extends Application {
 	final double HEIGHT = 720;
 	private Scene loginScene, queryScene;
 	private TableView table = new TableView();
-	private TextField textField = new TextField("Input Parameter");
+	private TextField textField = new TextField("");
 	private ConnectionManager connectionManager;
 	
     public static void main(String[] args) {
@@ -70,12 +70,12 @@ public class App extends Application {
         RadioButton query2 = new RadioButton("Products sold for the past month");
         query2.setToggleGroup(group);
         query2.setOnAction(e -> {
-        	textField.setDisable(false);
+        	textField.setDisable(true);
         });
         RadioButton query3 = new RadioButton("Employee Productivity");
         query3.setToggleGroup(group);
         query3.setOnAction(e -> {
-        	textField.setDisable(false);
+        	textField.setDisable(true);
         });
         RadioButton query4 = new RadioButton("Employees' Managers");
         query4.setToggleGroup(group);
@@ -96,6 +96,7 @@ public class App extends Application {
 	        	String query = "";
 	        	if(query1.isSelected() == true) {
 	        		query = Queries.QUERY_1;
+	        		query = query.replace("?", textField.getCharacters());
 	        		ResultSet rs = connectionManager.excecuteQuery(query);
 					TableManager.buildTable1(rs, table);
 	        	}

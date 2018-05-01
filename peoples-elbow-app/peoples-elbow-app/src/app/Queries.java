@@ -14,7 +14,8 @@ public class Queries {
 			+ " JOIN RECEIPT R ON C.CUSTOMER_ID = R.CUSTOMER_ID"
 			+ " JOIN PURCHASE PU ON R.RECEIPT_ID = PU.RECEIPT_ID"
 			+ " JOIN PRODUCT PR ON PU.ITEM_ID = PR.ITEM_ID"
-			+ " WHERE C.CUSTOMER_ID = ?"; //Replace ? with input parameter
+			+ " WHERE C.CUSTOMER_ID = ?"
+			+ " ORDER BY R.RECEIPT_ID ASC"; //Replace ? with input parameter
 	
 	/*Get all products sold in the past month.*/
 	public static final String QUERY_2 =
