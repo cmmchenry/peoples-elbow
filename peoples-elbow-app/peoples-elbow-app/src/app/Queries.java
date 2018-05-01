@@ -56,7 +56,8 @@ public class Queries {
 	
 	/*Register status.*/
 	public static final String QUERY_5 = 
-			"SELECT E.FIRST_NAME AS \"First Name\", "
+			"SELECT R.REGISTER_NO AS \"Register Number\", "
+			+ "E.FIRST_NAME AS \"First Name\", "
 			+ " E.LAST_NAME AS \"Last Name\", "
 			+ " R.BALANCE AS \"Register Balance\" "
 			+ " FROM EMPLOYEE E"

@@ -4,13 +4,22 @@ public class Query5 {
 	private String firstName;
 	private String lastName;
 	private int registerBalance;
+	private int register;
 	
-	public Query5 (String firstName, String lastName, int registerBalance) {
+	public Query5 ( int register,String firstName, String lastName, int registerBalance) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.registerBalance = registerBalance;
+		this.register = register;
 	}
-
+	public int getRegister() {
+		return register;
+	}
+	
+	public void setRegister(int register) {
+		this.register = register;
+	}
+	
 	public String getFirstName() {
 		return firstName;
 	}

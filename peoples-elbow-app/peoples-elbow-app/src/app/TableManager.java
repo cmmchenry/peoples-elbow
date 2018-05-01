@@ -122,20 +122,23 @@ public class TableManager {
     	table.getColumns().clear();
     	ResultSetMetaData meta = rs.getMetaData();
     	
-    	TableColumn col1 = new TableColumn("FirstName");
-    	col1.setCellValueFactory(new PropertyValueFactory<Query5,String>("firstName"));
+    	TableColumn col1 = new TableColumn("Register Number");
+    	col1.setCellValueFactory(new PropertyValueFactory<Query5,String>("register"));
+    	
+    	TableColumn col2 = new TableColumn("FirstName");
+    	col2.setCellValueFactory(new PropertyValueFactory<Query5,String>("firstName"));
 		
-		TableColumn col2 = new TableColumn("Last Name");
-		col2.setCellValueFactory(new PropertyValueFactory<Query5,String>("lastName"));
+		TableColumn col3 = new TableColumn("Last Name");
+		col3.setCellValueFactory(new PropertyValueFactory<Query5,String>("lastName"));
 		
-		TableColumn col3 = new TableColumn("Register Balance");
-		col3.setCellValueFactory(new PropertyValueFactory<Query5,String>("registerBalance"));
+		TableColumn col4 = new TableColumn("Register Balance");
+		col4.setCellValueFactory(new PropertyValueFactory<Query5,String>("registerBalance"));
   
-    	table.getColumns().addAll(col1, col2, col3);
+    	table.getColumns().addAll(col1, col2, col3, col4);
     	
     	ObservableList<Query5> data = FXCollections.observableArrayList();
     	while (rs.next()) {
-        	data.add(new Query5(rs.getString(1), rs.getString(2), rs.getInt(3)));
+        	data.add(new Query5(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4)));
     	}
     	
     	table.setItems(data);
